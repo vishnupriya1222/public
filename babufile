@@ -1,19 +1,19 @@
- Pipeline{
+ Pipeline {
    agent any
-    tools{
-      Maven=M2_HOME
-         }
-   stages{
-    stage ( 'Git checkout'){
-      steps {
+     tools{
+       Maven=M2_HOME
+           }
+    stages {
+     stage ( 'Git checkout') {
+     steps {
        echo 'This is for cloning the gitrepo'
         git branch: 'main', url: 'https://github.com/vishnupriya1222/public.git'
-                           }
+                              }
             }
-     stage('publish the Html reports'){
+     stage('publish the Html reports') {
       steps {
        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'var/lib/jenkins/workspace/insurance-me/target/surefire-report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
-                           }
+                              }
             }
       }
   }
