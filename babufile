@@ -1,7 +1,7 @@
  Pipeline{
    agent any
     tools{
-      Maven M2_HOME
+      Maven=M2_HOME
          }
    stages{
     stage ( 'Git checkout'){
